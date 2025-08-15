@@ -1,0 +1,99 @@
+/* --- Base --- */
+:root{
+  --pink:#ff4da6;
+  --pink-2:#ff75c8;
+  --pink-3:#ffe5f3;
+  --text:#2a2a2a;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(255,77,166,0.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:'Poppins',system-ui,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#fff 0%,#fff 60%,#ffeaf6 100%)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* --- Buttons --- */
+.btn{border:0;border-radius:16px;padding:12px 18px;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.primary{background:var(--pink);color:#fff;box-shadow:var(--shadow)}
+.btn.ghost{background:#fff;border:2px solid var(--pink);color:var(--pink)}
+.btn:hover{transform:translateY(-2px)}
+
+/* --- Header --- */
+.site-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fffccf00;background:#fff;backdrop-filter:saturate(180%) blur(6px);padding:10px 16px;border-bottom:1px solid #ffe3f2}
+.site-header .brand{display:flex;align-items:center;gap:10px}
+.site-header .brand img{width:56px;height:56px}
+.site-header .brand-text h1{font-size:18px;margin:0;line-height:1}
+.site-header .brand-text p{margin:2px 0 0;font-size:12px;opacity:.7}
+.nav{display:flex;align-items:center;gap:12px}
+.nav a{padding:8px 10px;border-radius:10px}
+.nav a:hover{background:var(--pink-3)}
+
+/* --- Hero Slider --- */
+.hero{position:relative;overflow:hidden;border-radius:24px;margin:16px}
+.slider{display:flex;transition:transform .6s ease-in-out}
+.slide{min-width:100%;height:68vh;background-size:cover;background-position:center;display:grid;place-items:center;position:relative}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.75),rgba(255,255,255,.15))}
+.slide-content{position:relative;text-align:center;padding:20px;max-width:900px}
+.slide-content h2{font-size:clamp(28px,6vw,64px);margin:0 0 6px;color:#ff2e8b;text-shadow:0 2px 0 #fff}
+.slide-content p{margin:0 0 16px;font-weight:500}
+
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:0;border-radius:50%;width:44px;height:44px;box-shadow:var(--shadow);cursor:pointer;font-size:28px;line-height:1;color:var(--pink)}
+.slider-btn.prev{left:12px}
+.slider-btn.next{right:12px}
+.dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:rgba(255,255,255,.75);padding:6px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:#ffd1ea;cursor:pointer}
+.dots button.active{background:var(--pink)}
+
+/* --- Sections --- */
+.section{padding:56px 16px;max-width:1200px;margin:0 auto}
+.section.alt{background:linear-gradient(180deg,#fff, #fff 30%, #ffeaf6 100%);border-radius:24px}
+.section-head{text-align:center;margin-bottom:24px}
+.section-head h3{font-size:clamp(22px,4vw,36px);color:#ff2e8b;margin:0 0 8px}
+.section-head p{margin:0;opacity:.8}
+
+/* --- Features --- */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.feature-card{background:#fff;border:1px solid #ffe3f2;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+.feature-card .icon{font-size:28px;margin-bottom:8px}
+
+/* --- Grid of Products --- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;border:1px solid #ffe3f2;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card .img{aspect-ratio:4/3;background:#fff}
+.card h5{margin:12px 12px 0;font-size:18px}
+.card p{margin:6px 12px 0;font-size:13px;opacity:.8}
+.card .card-bottom{display:flex;align-items:center;justify-content:space-between;padding:12px}
+.price{font-weight:800;color:#ff2e8b}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:28px;height:28px;border-radius:8px;border:1px solid #ffd1ea;background:#fff;cursor:pointer}
+.qty input{width:40px;text-align:center;border:1px solid #ffd1ea;border-radius:8px;padding:6px}
+
+/* --- Cart Drawer --- */
+.cart-drawer{position:fixed;right:-420px;top:0;height:100dvh;width:360px;background:#fff;border-left:2px solid #ffe3f2;box-shadow:-10px 0 30px rgba(255,77,166,.2);transition:right .35s ease;z-index:30;display:flex;flex-direction:column}
+.cart-drawer.open{right:0}
+.cart-header,.cart-footer{padding:12px;border-bottom:1px solid #ffe3f2;display:flex;align-items:center;justify-content:space-between}
+.cart-items{padding:12px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:10px}
+.cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid #ffe3f2;border-radius:12px;padding:8px}
+.cart-item img{width:64px;height:48px;object-fit:cover;border-radius:8px}
+.cart-item .title{font-weight:600}
+.cart-total{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+
+/* --- Modal --- */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.3);display:none;align-items:center;justify-content:center;padding:16px;z-index:40}
+.modal.show{display:flex}
+.modal-content{background:#fff;border-radius:16px;border:1px solid #ffe3f2;max-width:560px;width:100%;box-shadow:var(--shadow);padding:12px}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 0}
+.form{display:grid;gap:10px;padding:10px}
+.form input,.form textarea,.form select{width:100%;padding:12px;border-radius:12px;border:1px solid #ffd1ea;background:#fff}
+.small{opacity:.7;font-size:12px;padding:0 10px 10px}
+
+/* --- Footer / misc --- */
+.site-footer{padding:24px 16px;text-align:center;color:#8a3562}
+.scroll-top{position:fixed;right:16px;bottom:16px;border-radius:50%;width:44px;height:44px;border:0;background:var(--pink);color:#fff;font-weight:800;box-shadow:var(--shadow);cursor:pointer;display:none}
+.scroll-top.show{display:block}
+
+/* --- Animations --- */
+.reveal{opacity:0;transform:translateY(12px);}
+.reveal.show{opacity:1;transform:translateY(0);transition:opacity .7s ease, transform .7s ease}
+.reveal.delay{transition-delay:.15s}
+.reveal.delay2{transition-delay:.3s}
